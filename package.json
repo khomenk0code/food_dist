@@ -1,0 +1,22 @@
+{
+  "name": "food_dist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khomenk0code/food_dist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khomenk0code/food_dist/issues"
+  },
+  "homepage": "https://github.com/khomenk0code/food_dist#readme",
+  "devDependencies": {
+    "json-server": "^0.17.1"
+  }
+}
