@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
 
     // Tabs
 
@@ -27,9 +27,9 @@ window.addEventListener('DOMContentLoaded', function() {
     hideTabContent();
     showTabContent();
 
-    tabsParent.addEventListener('click', function(event) {
+    tabsParent.addEventListener('click', function (event) {
         const target = event.target;
-        if(target && target.classList.contains('tabheader__item')) {
+        if (target && target.classList.contains('tabheader__item')) {
             tabs.forEach((item, i) => {
                 if (target == item) {
                     hideTabContent();
@@ -45,10 +45,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function getTimeRemaining(endtime) {
         const t = Date.parse(endtime) - Date.parse(new Date()),
-            days = Math.floor( (t/(1000*60*60*24)) ),
-            seconds = Math.floor( (t/1000) % 60 ),
-            minutes = Math.floor( (t/1000/60) % 60 ),
-            hours = Math.floor( (t/(1000*60*60) % 24) );
+            days = Math.floor((t / (1000 * 60 * 60 * 24))),
+            seconds = Math.floor((t / 1000) % 60),
+            minutes = Math.floor((t / 1000 / 60) % 60),
+            hours = Math.floor((t / (1000 * 60 * 60) % 24));
 
         return {
             'total': t,
@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    function getZero(num){
+    function getZero(num) {
         if (num >= 0 && num < 10) {
             return '0' + num;
         } else {
@@ -129,6 +129,7 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
     const modalTimerId = setTimeout(openModal, 300000);
+
     // Изменил значение, чтобы не отвлекало
 
     function showModalByScroll() {
@@ -137,6 +138,7 @@ window.addEventListener('DOMContentLoaded', function() {
             window.removeEventListener('scroll', showModalByScroll);
         }
     }
+
     window.addEventListener('scroll', showModalByScroll);
 
     // Используем классы для создание карточек меню
@@ -191,13 +193,12 @@ window.addEventListener('DOMContentLoaded', function() {
         return await res.json();
     };
 
-    getResourse('http://localhost:3000/menu')
+    axios.get('http://localhost:3000/menu')
         .then(data => {
-            data.forEach(({img, altimg, title, descr, price}) =>{
-               new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
+            data.data.forEach(({img, altimg, title, descr, price}) => {
+                new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
             });
         });
-
 
     // Forms
 
@@ -214,16 +215,17 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
     const postData = async (url, data) => {
-      const res = await fetch(url, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: data
-      });
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: data
+        });
 
-      return await res.json();
+        return await res.json();
     };
+
     function bindPostData(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -240,12 +242,12 @@ window.addEventListener('DOMContentLoaded', function() {
 
             const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-                postData('http://localhost:3000/requests', json)
+            postData('http://localhost:3000/requests', json)
                 .then(data => {
-                console.log(data);
-                showThanksModal(message.success);
-                statusMessage.remove();
-            }).catch(() => {
+                    console.log(data);
+                    showThanksModal(message.success);
+                    statusMessage.remove();
+                }).catch(() => {
                 showThanksModal(message.failure);
             }).finally(() => {
                 form.reset();
@@ -279,5 +281,52 @@ window.addEventListener('DOMContentLoaded', function() {
     fetch('http://localhost:3000/menu')
         .then(data => data.json())
         .then(res => console.log(res));
+
+    //Slider
+
+    const slides = document.querySelectorAll('.offer__slide'),
+          next = document.querySelector('.offer__slider-next'),
+          prev = document.querySelector('.offer__slider-prev'),
+          total = document.querySelector('#total'),
+          current = document.querySelector('#current');
+
+    let slideIndex = 1;
+
+    showSlides(slideIndex);
+
+    if (slides.length < 10){
+        total.textContent =`0${slides.length}`;
+    } else {
+        total.textContent = slides.length;
+    }
+
+        function showSlides (n) {
+            if (n > slides.length){
+                slideIndex = 1;
+            }
+            if (n < 1){
+                slideIndex = slides.length;
+            }
+            slides.forEach(item => item.style.display = 'none');
+            slides[slideIndex - 1].style.display = 'block';
+
+            if (slides.length < 10){
+                current.textContent =`0${slideIndex}`;
+            } else {
+                current.textContent = slideIndex;
+            }
+
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        prev.addEventListener('click', () => {
+            plusSlides(-1);
+        })
+        next.addEventListener('click', () => {
+        plusSlides(1);
+    })
 
 });
