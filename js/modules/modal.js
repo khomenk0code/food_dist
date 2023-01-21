@@ -20,7 +20,7 @@ function openModal(modalSelector, modalTimerId) {
 
 function modal(triggerSelector, modalSelector, modalTimerId) {
     const modalTrigger = document.querySelectorAll(triggerSelector),
-        modal = document.querySelector(modalSelector);
+          modal = document.querySelector(modalSelector);
 
     modalTrigger.forEach(btn => {
         btn.addEventListener('click', () => openModal(modalSelector, modalTimerId));

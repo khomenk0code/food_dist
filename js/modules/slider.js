@@ -35,7 +35,7 @@ function slider ({container, slide, nextArrow, prevArrow, totalCounter, currentC
 
     const dots = document.createElement('ol'),
         indicators = [];
-    dots.classList.add('carousel-indocators');
+    dots.classList.add('carousel-indicators');
     dots.style.cssText = `
             position: absolute;
             right: 0;
@@ -50,7 +50,7 @@ function slider ({container, slide, nextArrow, prevArrow, totalCounter, currentC
         `;
     slider.append(dots);
 
-    for (let i = 0; i < slides.length; i++){
+    for (let i = 0; i < slides.length; i++) {
         const dot = document.createElement('li');
         dot.setAttribute('data-slide-to', i + 1);
         dot.style.cssText = `
@@ -82,7 +82,7 @@ function slider ({container, slide, nextArrow, prevArrow, totalCounter, currentC
     }
 
     next.addEventListener('click', () =>{
-        if (offset == deleteNotDigits(width) * (slides.length - 1)){
+        if (offset == deleteNotDigits(width) * (slides.length - 1)) {
             offset = 0;
         } else {
             offset += (deleteNotDigits(width));
@@ -91,7 +91,7 @@ function slider ({container, slide, nextArrow, prevArrow, totalCounter, currentC
         slidesField.style.transform = `translateX(-${offset}px)`;
         if (slideIndex == slides.length){
             slideIndex = 1;
-        }else {
+        } else {
             slideIndex++;
         }
 

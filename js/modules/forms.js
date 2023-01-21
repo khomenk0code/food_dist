@@ -2,13 +2,12 @@ import {closeModal, openModal} from "./modal";
 import {postData} from "../services/services";
 
 function forms (formSelector, modalTimerId) {
-    // Forms
-    const forms = document.querySelectorAll(formSelector);
 
+    const forms = document.querySelectorAll(formSelector);
     const message = {
         loading: 'img/form/spinner.svg',
-        success: 'Спасибо! Скоро мы с вами свяжемся',
-        failure: 'Что-то пошло не так...'
+        success: 'Дякуємо! Скоро ми з вами звяжемося',
+        failure: 'Ой-ой! Щось пішло не так...'
     };
 
     forms.forEach(item => {
@@ -49,6 +48,7 @@ function forms (formSelector, modalTimerId) {
         const prevModalDialog = document.querySelector('.modal__dialog');
 
         prevModalDialog.classList.add('hide');
+
         openModal('.modal', modalTimerId);
 
         const thanksModal = document.createElement('div');
