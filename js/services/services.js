@@ -7,7 +7,7 @@ const postData = async (url, data) => {
         body: data
     });
 
-    return await res.json();
+    return res.json();
 };
 const getResourse = async (url) => {
     const res = await fetch(url);
@@ -15,7 +15,7 @@ const getResourse = async (url) => {
     if (!res.ok) {
         throw new Error(`Could not fetch ${url}, status: ${res.status}`);
     }
-    return await res.json();
+    return res.json();
 };
 
 export {postData, getResourse};

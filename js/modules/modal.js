@@ -20,14 +20,14 @@ function openModal(modalSelector, modalTimerId) {
 
 function modal(triggerSelector, modalSelector, modalTimerId) {
     const modalTrigger = document.querySelectorAll(triggerSelector),
-          modal = document.querySelector(modalSelector);
+        modal = document.querySelector(modalSelector);
 
     modalTrigger.forEach(btn => {
         btn.addEventListener('click', () => openModal(modalSelector, modalTimerId));
     });
 
     modal.addEventListener('click', (e) => {
-        if (e.target === modal || e.target.getAttribute('data-close') == "") {
+        if (e.target === modal || e.target.getAttribute('data-close') === "") {
             closeModal(modalSelector);
         }
     });
@@ -44,9 +44,12 @@ function modal(triggerSelector, modalSelector, modalTimerId) {
             window.removeEventListener('scroll', showModalByScroll);
         }
     }
+
     window.addEventListener('scroll', showModalByScroll);
 }
 
 export default modal;
-export {closeModal};
-export {openModal};
+export {
+    closeModal,
+    openModal
+};

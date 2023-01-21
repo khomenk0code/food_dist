@@ -25,7 +25,7 @@
         <div class="sidepanel__text"><span>Соціальні мережі</span></div>
         <div class="sidepanel__divider"></div>
         <a target="_blank" href="https://www.instagram.com/khomenko.dev/"  class="sidepanel__icon">
-            <img src="icons/instagram.svg" alt="instagram">
+            <img src="icons/insta.svg" alt="instagram">
         </a>
         <a target="_blank" href="https://www.linkedin.com/in/khomenko-dev/" class="sidepanel__icon">
             <img  src="icons/linkedin.svg" alt="linkedin">
@@ -97,13 +97,13 @@
             <div class="offer__slider">
                 <div class="offer__slider-counter">
                     <div class="offer__slider-prev">
-                        <img src="icons/left.svg" alt="prev">
+                        <img src="icons/left.svg" width="30" alt="prev">
                     </div>
                     <span id="current">03</span>
                     /
                     <span id="total">04</span>
                     <div class="offer__slider-next">
-                        <img src="icons/right.svg" alt="next">
+                        <img src="icons/right.svg" width="30" alt="next">
                     </div>
                 </div>
                 <div class="offer__slider-wrapper">
@@ -145,9 +145,11 @@
                     Ваша конституція тіла
                 </div>
                 <div class="calculating__choose calculating__choose_medium">
-                    <input type="text" id="height" placeholder="Введіть ваш зріст" class="calculating__choose-item">
-                    <input type="text" id="weight" placeholder="Введіть вагу"  class="calculating__choose-item">
-                    <input type="text" id="age" placeholder="Введіть вік" class="calculating__choose-item">
+                    <input type="text" id="height" placeholder="Введіть ваш зріст"
+                           class="calculating__choose-item cursor-text">
+                    <input type="text" id="weight" placeholder="Введіть вагу"
+                           class="calculating__choose-item cursor-text">
+                    <input type="text" id="age" placeholder="Введіть вік" class="calculating__choose-item cursor-text">
                 </div>
 
                 <div class="calculating__subtitle">
@@ -191,7 +193,7 @@
             <form action="#" class="order__form">
                 <input required placeholder="Ваше ім'я" name="name" type="text" class="order__input">
                 <input required placeholder="Ваш номер телефону" name="phone" type="phone" class="order__input">
-                <img src="icons/right.svg" alt="right">
+                <img src="icons/right.svg" width="30" alt="right">
                 <button class="btn btn_dark btn_min">Передзвонити мені</button>
             </form>
         </div>
@@ -267,6 +269,6 @@
         </div>
     </div>
 
-<script src="js/bundle.js"></script>
+    <script src="dist/bundle.js"></script>
 </body>
 </html>

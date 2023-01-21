@@ -55,7 +55,7 @@ function calc() {
             elem.addEventListener('click', (e) => {
                 if (e.target.getAttribute('data-ratio')) {
                     ratio = +e.target.getAttribute('data-ratio');
-                    localStorage.setItem('ratio', +e.target.getAttribute('data-ratio'));
+                    localStorage.setItem('ratio', e.target.getAttribute('data-ratio'));
                 } else {
                     sex = e.target.getAttribute('id');
                     localStorage.setItem('sex', e.target.getAttribute('id'));
@@ -84,7 +84,7 @@ function calc() {
             } else {
                 input.style.border = 'none';
             }
-            switch(input.getAttribute('id')) {
+            switch (input.getAttribute('id')) {
                 case "height":
                     height = +input.value;
                     break;
