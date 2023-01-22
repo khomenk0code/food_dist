@@ -1,7 +1,6 @@
 # Healthy food
 
-This site is my pet project about healthy food and diet selection. Which I developed while taking a course on native Javascript
-Сode is divided into modules and assembled with webpack. I will briefly describe each:
+### This site is my pet project about healthy food and diet selection. Which I developed while taking a course on native Javascript. Сode is divided into modules and assembled with webpack. I will briefly describe each:
 
 ___
 
