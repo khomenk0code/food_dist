@@ -16,8 +16,8 @@ ___
 
 
 ### Stack:
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
 - Webpack
 - Babel
